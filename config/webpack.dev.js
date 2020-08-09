@@ -10,10 +10,11 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
+    contentBase: 'dist',
     host: '0.0.0.0',
     port: '4000',
-    contentBase: 'dist',
     inline: true,
+    overlay: true,
   },
   module: {
     rules: [
@@ -25,6 +26,40 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+            },
+          },
+          {
+            loader: 'extract-loader',
+            options: {
+              publicPath: '../',
+            },
+          },
+          {
+            loader: 'html-loader',
+            options: {
+              attrs: ['img:src'],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(jpg|gif|png)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]',
+            },
           },
         ],
       },

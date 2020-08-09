@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config=config/webpack.dev.js",
-    "build": "webpack --mode=production"
+    "start": "webpack-dev-server --config=config/webpack.dev.js",
+    "build": "webpack --config=config/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,9 @@
   "homepage": "https://github.com/TXBIT/webpack-demo#readme",
   "devDependencies": {
     "css-loader": "0.28.7",
+    "extract-loader": "1.0.1",
+    "file-loader": "1.1.9",
+    "html-loader": "0.5.1",
     "style-loader": "0.19.0",
     "webpack": "4.0.1",
     "webpack-cli": "2.0.10",
