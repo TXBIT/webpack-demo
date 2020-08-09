@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "webpack --config=config/webpack.dev.js",
-    "babel": "babel src/main.js",
+    "babel": "babel src/app.js",
     "dev": "nodemon --inspect=0.0.0.0:4002 --watch config --watch src/server src/server/main.js"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
     "css-loader": "0.28.7",
     "extract-loader": "1.0.1",
     "file-loader": "1.1.9",
@@ -42,6 +43,8 @@
     "webpack-hot-middleware": "2.20.0"
   },
   "dependencies": {
-    "express": "4.16.2"
+    "express": "4.16.2",
+    "react": "16.1.1",
+    "react-dom": "16.1.1"
   }
 }
