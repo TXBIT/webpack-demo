@@ -76,8 +76,25 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name].[ext]',
+              name: 'images/[name]-[hash:8].[ext]',
             },
+          },
+        ],
+      },
+      {
+        test: /\.pug$/,
+        use: [
+          {
+            loader: 'pug-loader',
+          },
+        ],
+      },
+      {
+        test: /\.hbs$/,
+        use: [
+          {
+            loader: 'handlebars-loader',
+            query: { inlineRequires: '/images/' },
           },
         ],
       },
@@ -85,8 +102,10 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new HTMLWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.hbs',
+      title: "Link's Journal",
     }),
   ],
 };
